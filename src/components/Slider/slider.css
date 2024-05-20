@@ -1,0 +1,32 @@
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.slider_img{
+    width: 300px;
+    border-radius: 10px;
+}
+
+.navigation {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}

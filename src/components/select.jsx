@@ -3,6 +3,7 @@ import Slider from './Slider/slider';
 import './style.css';
 
 export default function Select() {
+
     const images = [
         './144p.jpg',
         './360p.jpg',
@@ -12,7 +13,6 @@ export default function Select() {
 
     const [selectedImage, setSelectedImage] = useState(null);
     const [showSlider, setShowSlider] = useState(false);
-
     const handleChange = (event) => {
         const selectedIndex = event.target.selectedIndex - 1;
         if (selectedIndex === 3) {
@@ -39,12 +39,15 @@ export default function Select() {
     return (
         <div className='select_option'>
             <h3>Choose the quality</h3>
-
-            <button onClick={handlePlayPause} className='audio_btn'>
-                <i className={`fa-solid ${isPlaying ? 'fa-volume-xmark' : 'fa-volume-high'} animate-volume`}></i>
+            
+            <button onClick={handlePlayPause} className={`audio_btn ${isPlaying ? 'sound-mute' : ''}`}>
+                <i className={`fa-solid ${isPlaying ? 'fa-volume-xmark' : 'fa-volume-high'} sound--icon`}></i>
             </button>
+            
             <audio ref={audioRef} src="./tek.mp3" type="audio/mpeg"></audio>
 
+            <h3 className='clue_text'>from 144 to 1080</h3>
+            
             <select onChange={handleChange}>
                 <option value="">Select</option>
                 <option value="">144p</option>
@@ -54,12 +57,12 @@ export default function Select() {
             </select>
             
             <div className="select_img">
-                {!showSlider && selectedImage && <img className='img' src={selectedImage} alt="Selected Quality" />}
-                {showSlider && <Slider />}
+                { !showSlider && selectedImage && <img className='img' src={selectedImage} alt="Selected Quality" />}
+                { showSlider && <Slider /> }
             </div>
 
             <footer>
-                <p>&copy; mister J</p>
+                <p>&copy; misterj</p>
             </footer>
 
         </div>
